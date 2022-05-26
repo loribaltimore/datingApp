@@ -1,0 +1,20 @@
+<div class="container row col mt-3 rating-question-div">
+    <div id="rating-question">
+    <h5>What do you think is the most accurate rating for <%=prospectiveMatch.bio.first_name%>? </h5>
+    <form action="http://portfolio:3000/user/<%=currentUser.id%>/match/<%=prospectiveMatch.matching.match_id%>" method="POST" class="rating-form" id="rating-form">
+    <label for="rating-1"> <%=prospectiveMatch.converted_rating - 1%>
+        <input type="radio" class="rating-input" value="<%=prospectiveMatch.converted_rating - 1%>" name="rating" id="rating-1">
+    </label>
+    <label for="current-rating"> <%=prospectiveMatch.converted_rating%>
+        <input type="radio" class="rating-input checked" value="<%=prospectiveMatch.converted_rating%>" name="rating" id="current-rating" checked>
+    </label>
+    <%if ((prospectiveMatch.converted_rating + 1) <= 10 ){%>
+        <label for="rating+1"> <%=prospectiveMatch.converted_rating + 1%>
+            <input type="radio" class="rating-input" value="<%=prospectiveMatch.converted_rating + 1%>" name="rating" id="rating+1">
+        </label>
+    <%}%>
+</div>
+    <%-include('./interestedBtns')%>
+    </form>
+    <button id="show_interested">Rate</button>
+</div>

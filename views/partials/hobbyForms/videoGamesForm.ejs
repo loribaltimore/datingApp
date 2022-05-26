@@ -1,0 +1,88 @@
+<div class="hobby-form-div mt-5">
+    <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row container">
+        <h3>Video Games</h3>
+        <h5>Do you play video games?</h5>
+        <div class="text-center col row habit-inputs">
+        <h6>Action</h6>
+        <input type="checkbox" class="form-check-input" name="vg[plays][]" value="Action">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Shooters</h6> 
+        <input type="checkbox" class="form-check-input" name="vg[plays][]" value="Shooters">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Adventure</h6> 
+        <input type="checkbox" class="form-check-input" name="vg[plays][]" value="Adventure">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+        <h6>MMO</h6>
+        <input type="checkbox" class="form-check-input" name="vg[plays][]" value="MMO">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>RPG</h6> 
+        <input type="checkbox" class="form-check-input" name="vg[plays][]" value="RPG">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Retro</h6> 
+        <input type="checkbox" class="form-check-input" name="vg[plays][]" value="Retro">
+        </div>
+        <div>
+        <button>Add Game Preferences</button>
+    </div>
+    </form>
+        <div>
+        </div>
+        </div>
+
+        <div class="hobby-form-div mt-5">
+            <h5>What is your all time favorite game</h5>
+            <form action="http://portfolio:3000/user/<%=currentUser.id%>/videogame" method="POST">
+            <input type="text" name="vg[favorite_search]" placeholder="What's your favorite game?" id="favorite-game-input">
+            <button id="favorite-game-btn">Add Favorite Game</button>
+        </form>
+        <%if (favorite_searchResults !== undefined){%>
+            <div class="game-results ">
+                <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" class="row" method="POST">
+               <%for (let i = 0; i < 3; i++){%>
+            <div class="container row vg_input_div col text-center">
+                <h6><%=favorite_searchResults[i].name%></h6>
+                <input type="radio" name="vg[favorite]" class="vg_radio_input" value="<%=favorite_searchResults[i].cover.image_id%>::<%=favorite_searchResults[i].name%>::<%=favorite_searchResults[i].release_dates[0].human.slice((favorite_searchResults[i].release_dates[0].human.length - 4), favorite_searchResults[i].release_dates[0].human.length)%>">
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_small/<%=favorite_searchResults[i].cover.image_id%>.jpg" alt="" class="vg_poster">
+                <h6><%=favorite_searchResults[i].release_dates[0].human.slice((favorite_searchResults[i].release_dates[0].human.length - 4), favorite_searchResults[i].release_dates[0].human.length)%></h6>
+            </div>
+                <%}%>
+                <div class="container">
+                    <button type="submit">Add Favorite Game</button>
+                </div>
+            </form>
+            </div>
+       <% }%>
+        
+</div>
+        <div class="hobby-form-div mt-5">
+            <h5>What are you currently playing?</h5>
+            <form action="http://portfolio:3000/user/<%=currentUser.id%>/videogame" method="POST">
+            <input type="text" name="vg[current_search]" placeholder="What are you currently playing?" id=" current-game-input">
+            <button id="current-game-btn">Add Current Game</button>
+        </form>
+        <%if (current_searchResults !== undefined){%>
+            <div class="game-results ">
+                <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" class="row" method="POST">
+               <%for (let i = 0; i < 3; i++){%>
+            <div class="container row vg_input_div col text-center">
+                <h6><%=current_searchResults[i].name%></h6>
+                <input type="radio" name="vg[currently_playing]" class="vg_radio_input" value="<%=current_searchResults[i].cover.image_id%>::<%=current_searchResults[i].name%>::<%=current_searchResults[i].release_dates[0].human.slice((current_searchResults[i].release_dates[0].human.length - 4), current_searchResults[i].release_dates[0].human.length)%>">
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_small/<%=current_searchResults[i].cover.image_id%>.jpg" alt="" class="vg_poster">
+                <h6><%=current_searchResults[i].release_dates[0].human.slice((current_searchResults[i].release_dates[0].human.length - 4), current_searchResults[i].release_dates[0].human.length)%></h6>
+            </div>
+                <%}%>
+                <div class="container">
+                    <button type="submit">Add Current Game</button>
+                </div>
+            </form>
+            </div>
+       <% }%>
+        
+</div>
+
+        

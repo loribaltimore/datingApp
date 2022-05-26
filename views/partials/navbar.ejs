@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <%if (currentUser){%>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/user/home">Home</a>
+          </li>
+          <%if (totalPossibleMatches > 0 && currentUser.limit.start === undefined){%>
+            <li class="nav-item" id="match_btn">
+              <a href="http://portfolio:3000/user/<%=currentUser.id%>/match" class="nav-link" aria-current="page">Match</a>   
+            </li>
+          <%}%>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/<%=currentUser.id%>/chat">Chat</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Options
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/user/<%=currentUser.id%>/edit">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="/user/auth/logout">Logout</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <%if (path === '/home'){%>
+              <li class="nav-item">
+                <button class="btn nav-link" id="notify-btn">Notifications</button>  
+              </li>
+              <%}%>
+          <%} else {%>
+            <div class="nav-item login_btn">
+              <a class="nav-link" href="/user/auth/login">Login</a>
+            </div>
+            <div class="nav-item signup_btn">
+              <a class="nav-link" href="/user/auth/signup">Sign Up</a>
+            </div>
+            <%}%>
+        </ul>
+      </div>
+    </div>
+  </nav>

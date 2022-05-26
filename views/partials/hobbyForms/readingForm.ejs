@@ -1,0 +1,43 @@
+<script>
+    let bookAPI = '<%=booksAPI%>'
+</script>
+<div class="hobby-form-div mt-5">
+    <h3>Reading</h3>
+    <div>
+            <h5>What is your all time favorite book?</h5>
+            <div id="favorite-book-div">
+            <input type="text" name="read_favorite" placeholder="Favorite Book Title?">
+            <button id="favorite-book-btn">Add Favorite Book</button>
+        </div>
+        <div class="row container">
+                <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row" >
+                    <%for (let i = 0; i < 3; i++){%>
+                        <div class="reading_favorite_div row col">
+                            <input type="radio" id="<%=`favorite-book-input${i}`%>" value="" class="reading_radio_input" name="reading[favorite]">
+                    <img src="" alt="" id="<%=`favorite-book-poster${i}`%>" class="fav-book-poster">
+                </div>
+                <%}%>
+                <div>
+                <button type="submit">Submit</button>
+            </div>
+                </form>
+        </div>
+            <h5>What are you currently reading?</h5>
+            <div class="current-book-div">
+            <input type="text" name="currently_reading" placeholder="Current Title?">
+            <button id="currently-reading-btn">Add Currently Reading</button>
+        </div>
+        <div class="row container">
+            <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row" >
+                <%for (let i = 0; i < 3; i++){%>
+                    <div class="reading_current_div row col">
+                        <input type="radio" id="<%=`current-book-input${i}`%>" value="" class="reading_radio_input" name="reading[currently_reading]">
+                <img src="" alt="" id="<%=`current-book-poster${i}`%>" class="fav-book-poster">
+            </div>
+            <%}%>
+            <div>
+            <button type="submit">Submit</button>
+        </div>
+            </form>
+    </div>
+</div>

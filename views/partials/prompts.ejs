@@ -1,0 +1,16 @@
+<div>
+    <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" id="prompt-form">
+    <select class="form-select" aria-label="Default select example" id="prompt-select">
+        <option selected>Open this select menu</option>
+        <option value="What's your favorite quote?" class="prompt-option">What's your favorite quote?</option>
+        <option value="I'm the kind of person that..." class="prompt-option">I'm the kind of person that...</option>
+        <option value="Don't date me if..." class="prompt-option">Don't date me if...</option>
+        <option value="The most important thing in life..." class="prompt-option">The most important thing in life...</option>
+        <option value="The most important thing in a relationship is..." class="prompt-option">The most important thing in a relationship is...</option>
+      </select>
+      <div id="prompt-response-div" hidden>
+      <input type="text" name="promptResponse" id="prompt-response" placeholder="">
+      <button id="prompt-response-btn">Submit</button>
+    </form>
+    </div>
+</div>

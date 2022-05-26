@@ -1,0 +1,21 @@
+<div class="row ">
+    <div class="col">
+    <span class="display-4 col"><%=prospectiveMatch.bio.first_name%> <%=prospectiveMatch.bio.last_name%></span>
+    <span class="display-4 col" id="average-rating"><%=prospectiveMatch.converted_rating%></span>
+    <div class="basic-bio row container">
+        <span class="basic-bio-info col" id="basic-bio-age"><%=prospectiveMatch.bio.age%></span>
+        <span class="basic-bio-info col" id="basic-bio-location"><%=prospectiveMatch.bio.location.name%></span>
+        <div class="row ">
+            <% if (distance > 1) {%>
+                <span id="distance"><%=Math.floor(distance)%> miles away</span>
+            <%} else {%>
+                <span id="distance">< 1 mile away</span> 
+                <%}%>
+        </div>
+    </div> 
+</div>
+<%if (rated === undefined && currentUser.limit.start === undefined){%>
+    <%-include('ratingQuestion')%>
+    <%-include('interestedBtns')%>
+    <%}%>
+</div>

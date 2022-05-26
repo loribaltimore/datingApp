@@ -1,0 +1,33 @@
+<%-layout('./partials/boilerplate')%>
+<div class="contianer row mt-3">
+<script>
+    let currentUser = '<%=currentUser.id%>';
+</script>
+<a href=""><button>Add Habits</button></a>
+<div class="container row">
+    <div class="col">
+        <button class="habit-choice smoking" id="smoking-btn">Smoking</button>
+        <button class="habit-choice drinking" id="drinking-btn">Drinking</button>
+        <button class="habit-choice drugs" id="drugs-btn">Drugs</button>
+        <button class="habit-choice weed" id="weed-btn">Cannabis</button>
+    </div>
+</div>
+<%-include('./partials/prompts')%>
+<div class="row col all-habit-forms"
+    <%-include('./partials/habitForms/smokingForm')%>
+    <%-include('./partials/habitForms/drinkingForm')%>
+    <%-include('./partials/habitForms/weedForm')%>
+    <%-include('./partials/habitForms/drugsForm')%>
+</div>
+
+<a href=""><button>Add Hobbies</button></a>
+<div class="row col all-hobbies-forms">
+    <%-include('./partials/hobbyForms/exerciseForm')%>
+    <%-include('./partials/hobbyForms/musicForm')%>
+    <%-include('./partials/hobbyForms/videoGamesForm')%>
+    <%-include('./partials/hobbyForms/travelForm')%>
+    <%-include('./partials/hobbyForms/readingForm')%>
+    <%-include('./partials/hobbyForms/moviesForm')%>
+
+</div>
+</div>

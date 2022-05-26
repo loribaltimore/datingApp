@@ -1,0 +1,43 @@
+<%-layout('./partials/boilerplate.ejs')%>
+
+<%if (allMatches.length){%>
+    <div class="container row" id="all-chats-div">
+        <%for (match of allMatches){%>
+            <div class="row border mb-1 mt-1" id="chat-div">
+                <a href="/user/<%=currentUser.id%>/match/<%=match.match_id%>/chat" class="col row" id="chat-bio-anchor"> <div class="col row" id="chat-photo-div">
+                    <img src="<%=match.photo%>" alt="" id="chat-photo">
+                </div>
+                <div class="col" id="chat-bio">
+                    <h5><%=match.name%></h5>
+                <p>Matched <%=(Math.floor((new Date().getTime() - match.match_date.getTime()) / 86400000))%>  Days Ago</p>
+               
+            </div></a>
+            <div id="" class="row chat-btns">
+                <%if (match.nudge.replied === false && match.nudge.asked === false && match.nudge.recieved === false){%>
+                    <button class="btn btn-primary chat-btn" id="nudge<%=match.match_id%>">Nudge</button>
+                <%}%>
+                <button class="btn btn-danger chat-btn" id="nix<%=match.match_id%>">Nix</button>
+              
+            </div>
+        </a></div>
+        <%if (match.nudge.asked === true){%>
+        <div class="nudge-drop">
+                <p class="nudge-msg"><%=match.name%> wants to you make the first move! Shoot your shot!</p>
+        </div>
+        <%}%>
+        <%}%>
+    </div>
+<%} else{%>
+    <div class="display-1 text-center">
+        No Matches Yet!
+    </div>
+    <%}%>
+    <script>
+        let currentUser = '<%=currentUser.id%>';
+    </script>
+    
+    
+
+
+
+    

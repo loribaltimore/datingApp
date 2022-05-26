@@ -1,0 +1,18 @@
+<div class="habit-form-div mt-5" id="smoking-form" hidden>
+<h6>Do you smoke?</h6>
+<form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row container">
+<div class="text-center col row habit-inputs">
+<h6>Yes</h6>
+<input type="radio" class="form-check-input" name="habits[smoking]" value="Yes">
+</div>
+<div class="text-center col row habit-inputs mt-1">
+   <h6>Sometimes</h6> 
+<input type="radio" class="form-check-input" name="habits[smoking]" value="Sometimes">
+</div>
+<div class="text-center col row habit-inputs mt-1">
+   <h6>No</h6> 
+<input type="radio" class="form-check-input" name="habits[smoking]" value="No">
+</div>
+</form>
+<button type="submit">Submit</button>
+</div>

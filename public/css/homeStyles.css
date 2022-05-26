@@ -1,0 +1,394 @@
+body{
+    background-color: lightgray;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    
+}
+.profile-carousel-img{
+    height: 25rem;
+    width: 40rem;
+}
+.profile-home-bio{
+    height: 25rem;
+    width: 40rem;
+    background-color: whitesmoke ;
+}
+#distance{
+    max-width: 10rem;
+}
+#average-rating{
+    position: relative;
+    left: 3rem
+}
+.basic-bio-info{
+    font-size: 25px;
+}
+#basic-bio-location{
+    width: 20rem;
+    padding-left: 0%;
+}
+#basic-bio-age{
+    max-width: 3rem;
+    padding-left: 0%;
+}
+.basic-bio{
+    margin-left: 0%;
+    padding-left: 0%;
+}
+.carousel-inner{
+    margin: 0;
+    width: 40rem;
+}
+.profile-home-personality{
+    background: whitesmoke;
+}
+.profile-home-habits{
+    width: 10rem;
+    text-align: center;
+}
+.interestedBtns-div{
+    max-width: 20rem;
+}
+.spotify-thumbnail{
+    height: 10rem;;
+    width: 7rem;
+    margin: 1%;
+}
+.spotify-thumbnail-div{
+padding: 1%;
+max-width: 8rem;
+margin-left: 1rem
+}
+.spotify-thumbnail-container{
+    border-style: solid;
+    border-color: rgb(25, 189, 25);
+    border-width: 1px;
+    max-width: 50rem;
+}
+.spotify{
+    margin-left: 2.5%;
+    max-width: 50rem;
+}
+.artist{
+font-size: small;
+}
+.track{
+    font-size: small;
+}
+.signup_btn{
+    position: relative;
+    left: 75rem;
+    color: green
+}
+.login_btn{
+    position: relative;
+    left: 74rem;
+    color: green
+}
+.nav-link{
+    color: green;
+}
+.form-control{
+    max-width: 35rem;
+}
+.input-group-text{
+    width: 8rem;
+  text-align: center;
+}
+.form-check-input{
+    width:3rem;
+    height: 3rem;
+    margin-left: 1rem
+}
+.checkbox-divs{
+    max-width: 5rem;
+    margin-left: 2%
+}
+.habit-inputs{
+    max-width: 7rem;
+    text-align: center;
+}
+.habit-form-div{
+    border-style: solid;
+    border-width: 1%;
+    max-width: 20rem;
+}
+.edit-profile-text{
+    max-width: 20rem;
+};
+.movie-inputs{
+    position: relative;
+    left:3rem
+}
+.favorite-movie-poster{
+    width: 11rem;
+    height: 12rem;
+}
+.poster-div{
+    width: 12rem
+}
+.vg_poster{
+    max-width: 15rem;
+}
+.vg_input_div{
+    max-width: 15rem;
+}
+.vg_radio_input{
+    position: relative;
+    top: 1rem;
+    right: 6rem;
+}
+.reading_radio_input{
+    position:relative;
+    top: .75rem;
+    right: 5.6rem;
+}
+
+.reading_favorite_div{
+    max-width: 15rem;
+}
+.fav-book-poster{
+    max-height: 15rem;
+}
+.reading_current_div{
+    max-width: 15rem;
+}
+.hobby-div-left{
+    border-style: solid;
+    border-color: rgb(25, 189, 25);
+    border-width: 1px;
+    max-width: 30rem;
+    border-radius: 10%;
+    margin-left: 10%;
+}
+.hobby-div-right{
+    border-style: solid;
+    border-color: rgb(25, 189, 25);
+    border-width: 1px;
+    max-width: 30rem;
+    border-radius: 10%;
+    
+}
+.quote-div{
+    background: palegoldenrod;
+    max-width: 30rem;
+    border-radius: 10%;
+    margin-left: 7%;
+    font-size: 30px;
+}
+.text-decoration-none{
+    color: black;
+}
+#chat-form{
+    background: rgba(0, 0, 0, 0.15); 
+    padding: 0.25rem; 
+    position: sticky; 
+    top: 16rem;
+    display: flex; 
+    box-sizing: 
+    border-box; 
+    backdrop-filter: blur(10px);
+}
+#chat-input{
+    border: none; 
+    padding: 0 1rem; 
+    flex-grow: 1; 
+    border-radius: 2rem; 
+    margin: 0.25rem;
+}
+#chat-btn{
+    background: #333; 
+    border: none; 
+    padding: 0 1rem; 
+    margin: 0.25rem; 
+    border-radius: 3px; 
+    outline: none; 
+    color: #fff;
+}
+
+#messages-display{
+    width: 30rem;
+    height: 30rem;
+    background: whitesmoke;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0%;
+    padding: 0%;
+    position: relative;
+}
+ul{
+    list-style-type: none;
+}
+.odd-msg{
+    background: lightgoldenrodyellow;
+}
+#chat-photo-div{
+    max-width: 12rem;
+}
+#chat-photo{
+    max-width: 11rem;
+    padding: .5rem;
+    border-radius: 2rem;
+}
+#chat-bio{
+    padding: .5rem;
+    
+}
+#chat-room-photo-div{
+    max-height: 5rem;
+    max-width: 5.5rem;
+    position: relative;
+    left: 43%
+}
+#chat-room-photo{
+    height: 4rem;
+    width: 5.5rem;
+    border-radius: 50%;
+}
+#chat-room-name{
+    margin: 0;
+    padding: 0;
+}
+#chat-div{
+    width: 40rem;
+    background: lightgoldenrodyellow;
+    border-radius: 2rem;
+    z-index: 1;
+}
+#all-chats-div{
+    position: relative;
+    left: 15rem;
+    max-width: 40rem;
+}
+.chat-btns{
+    width: 10rem;
+}
+.chat-btn{
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    position: relative;
+    top: .5rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.notification-photo{
+    height: 2rem;
+    max-width: 4rem;
+    border-radius: 50%;
+    position: relative;
+    top: .5rem;
+    left: .5rem
+}
+#notify-div{
+   width: 17rem;
+   position: absolute;
+    left: 30rem
+}
+.notification-msg{
+    font-size: smaller;
+    position: relative;
+    top: .9rem;
+    margin: 0%;
+    padding: 0%;
+}
+.notif-close{
+    max-width: .25rem;
+    max-height: .25rem;
+    position: relative;
+    top: .2rem;
+    right: .5rem
+}
+.notification{
+    background-color: whitesmoke;
+    width: 17rem;
+    height: 3rem;
+    margin: 0%;
+    padding: 0%;
+
+}
+.nudge-msg{
+    color: blue;
+    position: relative;
+    top: 3.25rem;
+    text-align: center;
+}
+.nudge-chat{
+    background-color: lightblue;
+}
+.nudge-drop{
+    background-color: lightblue;
+    width: 40rem;
+    border-radius: 0rem 0rem 2rem 2rem;
+    height: 5rem;
+    position: relative;
+ right: .7rem;
+    top: -3.5rem;
+    z-index: 0;
+}
+#noLikes{
+    width: 30rem;
+    height: 5rem;
+    border-radius: 2rem;
+    background-color: lightcoral;
+    position: relative;
+   
+}
+#match-time{
+    font-size: 1.5rem;
+    position: relative;
+    top: 1rem
+}
+.time{
+    max-width: 2.25rem;
+    font-size: 1.5rem;
+}
+#clock{
+    position: relative;
+    left: 10rem;
+    bottom: 1rem
+}
+#read{
+    position: relative;
+    top: 6.5rem;
+}
+.seeking{
+    max-width: 6rem;
+}
+.range_label{
+    max-width: 9rem;
+    margin-right: 2rem;
+}
+.range_input{
+    max-width: 35rem;
+}
+#error_status{
+    width: 20rem;
+    border: solid;
+    border-width: 5px;
+    border-color: rgb(67, 140, 165);
+    text-align: center;
+color: rgb(62, 142, 172);
+font-size: 100px;
+position: relative;
+left: 28rem;
+top: 2rem;
+}
+#error_msg{
+    color: rgb(62, 142, 172);
+    text-align: center;
+    font-size: 65px;
+    position: relative;
+    top: 2rem;
+}
+
+
+
+
+
+
+
+
+

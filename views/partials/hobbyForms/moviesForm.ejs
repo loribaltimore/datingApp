@@ -1,0 +1,55 @@
+<script>
+    let movieAPI = '<%=movieAPI%>';
+</script>
+<div class="hobby-form-div mt-5" id="movies-div">
+    <h3>Movies and TV</h3>
+    <h5>What is your all time favorite movie?</h5>
+    <div>
+    <input type="text" name="movies_and_tv[favorites]" placeholder="Favorite Movie Title?">
+    <button id="favorite_movie_btn">Add Favorite Movie</button>
+</div>
+    <h5>What are you currently watching?</h5>
+    <input type="text" name="movies_and_tv[currently_watching]" placeholder="Current Title?">
+    <button id="current_movie_btn">Add Currently Watching</button>
+</div>
+
+<div class="container row">
+<form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row">
+    <div>
+<img src="" class="" id="movie-radio-0">
+<input type="radio" name="movies_and_tv[favorite]" id="poster_0" class="movie-inputs">
+<img src="" class="" id="movie-radio-1">
+<input type="radio" name="movies_and_tv[favorite]" id="poster_1" class="movie-inputs">
+<img src="" class="" id="movie-radio-2">
+<input type="radio" name="movies_and_tv[favorite]" id="poster_2" class="movie-inputs">
+</div>
+<div >
+<button id="movie-button-2" hidden>Add Favorite Movie</button>
+</div>
+</form>
+</div>
+<div class="container row">
+<form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row">
+    <div>
+<img src="" class="" id="current-radio-0">
+<input type="radio" name="movies_and_tv[currently_watching]" id="current_poster_0" class="movie-inputs">
+<img src="" class="" id="current-radio-1">
+<input type="radio" name="movies_and_tv[currently_watching]" id="current_poster_1" class="movie-inputs">
+<img src="" class="" id="current-radio-2">
+<input type="radio" name="movies_and_tv[currently_watching]" id="current_poster_2" class="movie-inputs">
+</div>
+<div >
+<button id="movie-button-2" hidden>Add Current TV</button>
+</div>
+</form>
+</div>
+
+////we have to merge all inputs into one form or find another way to make only one radio choice active at one time
+////we want them to only be able to select one movie as thie favorite
+///the movie id should be the value of the input so we can create a function in the handler on the back end 
+/// to fetch the movies metadata to display on the users match page along with spotify;
+///we will probably have to store this metadata (like img paths) in the user data set, so I will need to reformat 
+/// the favorite movie category in models
+display on page
+create more elegant edit profile page, transitions, one at a time input etc.
+i want to check out the video game API via the twitch thing too

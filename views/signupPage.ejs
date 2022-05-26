@@ -1,0 +1,114 @@
+<%-layout('./partials/boilerplate')%>
+<script>
+let movie_api_key = '<%=movieAPI%>';
+</script>
+<div class="container row create-user-form">
+    <form action="http://portfolio:3000/user/auth/signup" method="POST" enctype="multipart/form-data">
+        <div class="create-user-inputs">
+      //account info
+        <div class="row account-info">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Email Address</span>
+            <input type="email" class="form-control" name="acct[email]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Monicker</span>
+            <input type="text" class="form-control" name="acct[username]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Password</span>
+            <input type="password" class="form-control" name="acct[password]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+          ///bio
+          <div class="row user-bio">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="">First Name</span>
+            <input type="text" class="form-control" name="bio[first_name]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Last Name</span>
+            <input type="text" class="form-control" name="bio[last_name]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        <div class="input-group mb-3 row ">
+          <div class="col">
+            <div class="input-group">
+            <span class="input-group-text" id="">Location</span>
+            <input type="text" class="form-control" name="bio[location][data]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="col">
+            <div>
+            <input type="radio" name="bio[location][loc_services]" value="active">
+            <p>Use Active Location</p>
+          </div>
+          <div>
+            <input type="radio" name="bio[location][loc_services]" value="static" >
+              <p>Always Use Home Location</p>
+          </div>
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Age</span>
+            <input type="text" class="form-control" name="bio[age]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>           
+            <input type="text" class="form-control" name="bio[member_since]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="<%=Date.now()%>" hidden>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Photos</span>
+            <input type="file" class="form-control" name="img" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" multiple>
+          </div>
+          <div class="input-group mb-3 row">
+            <span class="input-group-text " id="">Gender Identity</span>
+            <div class="col seeking">
+            <input type="radio" class="" name="pref[gender]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="Male">
+              <h6>Female</h6>
+          </div>
+          <div class="col seeking">
+            <input type="radio" class="" name="pref[gender]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="Female">
+          <h6>Male</h6>
+          </div>
+          <div class="col seeking">
+            <input type="radio" class="" name="pref[gender]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="Queer">
+          <h6>Queer</h6>
+          </div>
+          </div>
+        <div class="input-group mb-3 row">
+            <span class="input-group-text " id="">Seeking</span>
+            <div class="col seeking">
+            <input type="checkbox" class="" name="pref[seeking][]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="Male">
+              <h6>Female</h6>
+          </div>
+          <div class="col seeking">
+            <input type="checkbox" class="" name="pref[seeking][]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="Female">
+          <h6>Male</h6>
+          </div>
+          <div class="col seeking">
+            <input type="checkbox" class="" name="pref[seeking][]" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="Queer">
+          <h6>Queer</h6>
+          </div>
+          </div>
+        <div class="input-group mb-3 row">
+          <div class="row">
+          <label for="pref[distance]" class="form-label col input-group-text range_label">Match Distance</label>
+          <h6 id="distance_num" class="col"></h6>
+            </div>
+          <div>
+          <input type="range" class="form-range range_input" min="0" max="20" name="pref[distance][desired]" id="distance_input">
+            </div>
+        </div>
+        <div class="input-group mb-3 row">
+          <div class="row">
+          <label for="pref[age]" class="form-label col input-group-text range_label" id="">Age Range</label>
+          <h6 id="age_num" class="col"></h6>
+            </div>
+          <div>
+          <input type="range" class="form-range range_input" min="0" max="57" id="age_input" name="pref[age]">
+            </div>
+        </div>
+      </div>
+        <button class="create-account-btn">Create Account</button>
+      </form>
+    </div>
+
+    
+
+

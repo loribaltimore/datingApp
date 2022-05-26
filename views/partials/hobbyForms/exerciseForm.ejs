@@ -1,0 +1,30 @@
+<div class="hobby-form-div mt-5">
+<form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row container">
+    <h4>Do you exercise?</h4>
+    <div class="text-center col row habit-inputs">
+    <h6>Running</h6>
+    <input type="checkbox" class="form-check-input" name="exercise[]" value="Running">
+    </div>
+    <div class="text-center col row habit-inputs mt-1">
+       <h6>Climbing</h6> 
+    <input type="checkbox" class="form-check-input" name="exercise[]" value="Climbing">
+    </div>
+    <div class="text-center col row habit-inputs mt-1">
+       <h6>Hiking</h6> 
+    <input type="checkbox" class="form-check-input" name="exercise[]" value="Hiking">
+    </div>
+    <div class="text-center col row habit-inputs mt-1">
+    <h6>Weights</h6>
+    <input type="checkbox" class="form-check-input" name="exercise[]" value="Weightlifting">
+    </div>
+    <div class="text-center col row habit-inputs mt-1">
+       <h6>Sports</h6> 
+    <input type="checkbox" class="form-check-input" name="exercise[]" value="Sports">
+    </div>
+    <div>
+    <button>Add Exercises</button>
+</div>
+    </form>
+</div>
+
+    

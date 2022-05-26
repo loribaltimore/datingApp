@@ -1,0 +1,99 @@
+<div class="hobby-form-div mt-5">
+    <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row container">
+        <h3>Music</h3>
+        <h5>Do you play any instruments?</h5>
+        <div class="text-center col row habit-inputs">
+        <h6>Guitar</h6>
+        <input type="checkbox" class="form-check-input" name="music[plays][]" value="Guitar">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Piano</h6> 
+        <input type="checkbox" class="form-check-input" name="music[plays][]" value="Piano">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Violin</h6> 
+        <input type="checkbox" class="form-check-input" name="music[plays][]" value="Violin">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+        <h6>Clarinet</h6>
+        <input type="checkbox" class="form-check-input" name="music[plays][]" value="Clarinet">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Cello</h6> 
+        <input type="checkbox" class="form-check-input" name="music[plays][]" value="Cello">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Drums</h6> 
+        <input type="checkbox" class="form-check-input" name="music[plays][]" value="Drums">
+        </div>
+        <div>
+         <button>Add Instruments</button>
+     </div>
+    </form>
+        
+        </div>
+        
+        <div class="hobby-form-div mt-5">
+    <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="row container">
+
+        <h5 class="mt-3">What do you listen to?</h5>
+        <div class="text-center col row habit-inputs">
+        <h6>Metal</h6>
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Metal">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Rock</h6> 
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Rock">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>EDM</h6> 
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="EDM">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+        <h6>Country</h6>
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Country">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Bluegrass</h6> 
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Bluegrass">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Techno</h6> 
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Techno">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Pop</h6> 
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Pop">
+        </div>
+        <div class="text-center col row habit-inputs mt-1">
+           <h6>Rap</h6> 
+        <input type="checkbox" class="form-check-input" name="music[listens][]" value="Rap">
+        </div>
+        <div>
+         <button>Add Music Preference</button>
+     </div>
+        </form>
+    </div>
+
+    <div class="container row">
+    <%if (!currentUser.personality.hobbies.music.spotify.length){%>
+      <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST">
+         <input type="text" name="approveSpotify" hidden>
+        <button id="link-spotify-btn" class="btn btn-success">Link Spotify</button>
+      </form>
+    <%} else {%>
+      <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="col">
+         <input type="text" name="deleteSpotify" hidden>
+        <button id="link-spotify-btn" class="btn btn-danger">Remove Spotify</button>
+      </form>
+      <form action="http://portfolio:3000/user/<%=currentUser.id%>?_method=PUT" method="POST" class="col">
+         <input type="text" name="refreshSpotify" hidden>
+        <button id="link-spotify-btn" class="btn btn-success">Refresh Spotify</button>
+      </form>
+          <%}%>
+         </div>
+
+            
+         
+
+    ///make it 

@@ -1,0 +1,257 @@
+<%-layout('./partials/boilerplate')%>
+
+<div class="container row">
+    <%-include('./partials/matchPageTopper')%>
+  <div id="profile-home-carousel" class="carousel slide mt-3 col" data-bs-ride="carousel">
+      <div class="carousel-inner ">
+        <div class="carousel-item active ">
+          <img src="<%=prospectiveMatch.bio.img[0].path%>" class=" profile-carousel-img" alt="">
+        </div>
+        <%for (let i = 1; i < prospectiveMatch.bio.img.length; i++ ){%>
+          <div class="carousel-item">
+              <img src="<%=prospectiveMatch.bio.img[i].path%>" class=" profile-carousel-img" alt="">
+            </div>
+        <%}%> 
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#profile-home-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#profile-home-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+<div class="col profile-home-personality mt-3">
+<div class="row">
+  <h4 class="mt-3">Habits</h4>
+  <span class="col border-end border-dark profile-home-habits">Smokes: <%=prospectiveMatch.personality.habits.smoking%></span>    
+  <span class="col border-end border-dark profile-home-habits">Drinks: <%=prospectiveMatch.personality.habits.drinking%></span> 
+  <span class="col border-end border-dark profile-home-habits">Drugs: <%=prospectiveMatch.personality.habits.drugs%></span>    
+  <span class="col profile-home-habits">Weed: <%=prospectiveMatch.personality.habits.weed%></span>    
+</div>
+<div class="row">
+  <h4 class="mt-3">Hobbies</h4>
+  <div class="border mb-1 row">
+      <span><h6>Exercise:</h6> <%=prospectiveMatch.personality.hobbies.exercise%></span>
+  </div>
+  <div class="row border">
+  <span class="row col border-end">
+      <h6>Music</h6>
+      <span>Plays: <%=prospectiveMatch.personality.hobbies.music.plays%></span>
+      <span>Listens to: <%=prospectiveMatch.personality.hobbies.music.listens_to%></span>
+  </span>
+  
+  <span class="row col">
+      <h6>Movies and TV</h6>
+      <span>Currently Watching: <%=prospectiveMatch.personality.hobbies.movies_and_tv.currently_watching.title%></span>
+      <span>Favorites: <%=prospectiveMatch.personality.hobbies.movies_and_tv.favorite.title%></span>
+  </span>
+</div>
+<div class="row mt-1 border">
+  <span class="row col border-end">
+      <h6>Travel</h6>
+      <span>Been To: <%=prospectiveMatch.personality.hobbies.travel.been_to.name%></span>
+      <span>Going Next: <%=prospectiveMatch.personality.hobbies.travel.going_to.name%></span>
+  </span>
+  <span class="row col">
+      <h6>Reading</h6>
+      <span>Currently Reading: <%=prospectiveMatch.personality.hobbies.reading.currently_reading.title%></span>
+      <span>Favorite: <%=prospectiveMatch.personality.hobbies.reading.favorites%></span>
+  </span>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<%if (prospectiveMatch.personality.hobbies.music.spotify){%>
+  <div class="spotify text-center">
+    <h5>Top Spotify Artists</h5>
+    <div class="container row mb-5 spotify-thumbnail-container rounded-pill">
+      <%for (let el of prospectiveMatch.personality.hobbies.music.spotify){%>
+    <div class="col spotify-thumbnail-div text-center mt-1 ">
+      <h6 class="artist"><%=el.artist%></h6>
+      <img src="<%=el.cover%>" class="spotify-thumbnail" alt="">
+      <h6 class="track"><%=el.track%></h6>
+    </div>
+      <%}%>
+    </div>
+  </div>
+<%}%>
+
+
+<div class="mt-5 row">
+<div class="container row col text-center hobby-div-left">
+  <h4>Movies and TV</h4>
+  <%if (prospectiveMatch.personality.hobbies.movies_and_tv.favorite){%>
+    <a href="https://en.wikipedia.org/wiki/<%=prospectiveMatch.personality.hobbies.movies_and_tv.favorite.title%>" target="_blank" class="col text-decoration-none">
+      <div class="">
+  <h5>Favorite Movie</h5>
+  <div class="row text-center poster-div">
+   <h6 class="wiki-anchor"><%=prospectiveMatch.personality.hobbies.movies_and_tv.favorite.title%></h6>
+  <img src="<%=prospectiveMatch.personality.hobbies.movies_and_tv.favorite.poster%>" class="favorite-movie-poster" alt="">  
+  <h6><%=prospectiveMatch.personality.hobbies.movies_and_tv.favorite.release.slice(0, 4)%></h6>
+</div>
+</div>
+</a>
+<%}%>
+<%if (prospectiveMatch.personality.hobbies.movies_and_tv.currently_watching){%>
+  <a href="https://en.wikipedia.org/wiki/<%=prospectiveMatch.personality.hobbies.movies_and_tv.currently_watching.title%>" target="_blank" class="col text-decoration-none">
+  <div class="">
+  <h5>Currently Watching</h5>
+  <div class="row text-center poster-div">
+    <h6 class="wiki-anchor"><%=prospectiveMatch.personality.hobbies.movies_and_tv.currently_watching.title%></h6>
+  <img src="<%=prospectiveMatch.personality.hobbies.movies_and_tv.currently_watching.poster%>" class="favorite-movie-poster" alt="">  
+  <h6><%=prospectiveMatch.personality.hobbies.movies_and_tv.currently_watching.release.slice(0, 4)%></h6>
+</div>
+</div>
+</a>
+</div>
+<%}%>
+<div class="col quote-div">
+<%if (allRandomPrompts.length){%>
+  <div>
+    <h1><%=allRandomPrompts[0].topic%></h1>
+    <p><%=allRandomPrompts[0].response%></p>
+  </div>
+  <%}%>
+</div>
+</div>
+
+<div class="mt-5 row">
+<div class="col quote-div">
+  <%if (allRandomPrompts[1]){%>
+    <div>
+      <h1><%=allRandomPrompts[1].topic%></h1>
+      <p><%=allRandomPrompts[1].response%></p>
+    </div>
+    <%}%>
+</div>
+
+<div class="container row col text-center hobby-div-right ">
+  <h4>Video Games</h4>
+  <a href="https://en.wikipedia.org/wiki/<%=prospectiveMatch.personality.hobbies.video_games.favorite.title%>" target="_blank" class="col text-decoration-none">
+  <div class="">
+  <h5>Favorite Game</h5>
+  <div class="row text-center poster-div">
+    <h6 class="wiki-anchor"><%=prospectiveMatch.personality.hobbies.video_games.favorite.title%></h6>
+  <img src="<%=prospectiveMatch.personality.hobbies.video_games.favorite.poster%>" class="favorite-movie-poster" alt="">  
+  <h6><%=prospectiveMatch.personality.hobbies.video_games.favorite.release%></h6>
+  </div>
+  </div>
+</a>
+
+<%if (prospectiveMatch.personality.hobbies.video_games.currently_playing.title){%>
+  <a href="https://en.wikipedia.org/wiki/<%=prospectiveMatch.personality.hobbies.video_games.currently_playing.title%>" target="_blank" class="col text-decoration-none">
+  <div class="">
+  <h5>Currently Playing</h5>
+  <div class="row text-center poster-div">
+    <h6 class="wiki-anchor"><%=prospectiveMatch.personality.hobbies.video_games.currently_playing.title%></h6>
+  <img src="<%=prospectiveMatch.personality.hobbies.video_games.currently_playing.poster%>" class="favorite-movie-poster" alt="">  
+  <h6><%=prospectiveMatch.personality.hobbies.video_games.currently_playing.release%></h6>
+</div>
+</div>
+</a>
+<%}%>
+</div>
+
+</div>
+
+<div class="mt-5 row">
+<div class="container row col text-center  hobby-div-left">
+<h4>Reading</h4>
+<a href="https://en.wikipedia.org/wiki/<%=prospectiveMatch.personality.hobbies.reading.favorite.title%>" target="_blank" class="col text-decoration-none">
+  <div class="">
+  <div class="row text-center poster-div">
+    <h5>Favorite Book</h5>
+    <h6 class="wiki-anchor"><%=prospectiveMatch.personality.hobbies.reading.favorite.title%></h6>
+  <img src="<%=prospectiveMatch.personality.hobbies.reading.favorite.poster%>" class="favorite-movie-poster" alt="">  
+  <h6><%=prospectiveMatch.personality.hobbies.reading.favorite.author%></h6>
+</div>
+</div>
+</a>
+<%if (prospectiveMatch.personality.hobbies.reading.currently_reading){%>
+  <a href="https://en.wikipedia.org/wiki/<%=prospectiveMatch.personality.hobbies.reading.currently_reading.title%>" target="_blank" class="col text-decoration-none">
+  <div class="">
+  <div class="row text-center poster-div">
+    <h5>Currently Reading</h5>
+    <h6 class="wiki-anchor"><%=prospectiveMatch.personality.hobbies.reading.currently_reading.title%></h6>
+  <img src="<%=prospectiveMatch.personality.hobbies.reading.currently_reading.poster%>" class="favorite-movie-poster" alt="">  
+  <h6><%=prospectiveMatch.personality.hobbies.reading.currently_reading.author%></h6>
+</div>
+</div>
+</a>
+</div>
+<%}%>
+<div class="col quote-div">
+<%if (allRandomPrompts[2]){%>
+<div>
+  <h1><%=allRandomPrompts[2].topic%></h1>
+  <p><%=allRandomPrompts[2].response%></p>
+</div>
+<%}%>
+</div>
+</div>
+
+<%if (prospectiveMatch.personality.hobbies.travel.been_to.geometry.coordinates.length){%>
+<div id='map' style='width: 600px; height: 400px;'></div>
+<script>
+let from = '<%=prospectiveMatch.bio.location.geometry.coordinates%>'.split(',').map(x =>  parseInt(x));
+let going_to = '<%=prospectiveMatch.personality.hobbies.travel.going_to.geometry.coordinates%>'.split(',').map(x =>  parseInt(x));
+let been_to = '<%=prospectiveMatch.personality.hobbies.travel.been_to.geometry.coordinates%>'.split(',').map(x =>  parseInt(x));
+mapboxgl.accessToken = 'pk.eyJ1IjoibG9yaWJhMXRpbW9yZSIsImEiOiJja3ppbjA3Z3kwc2VrMnBxaGsxY3o0dnQ4In0.QzBP8BoDRGZetSuQiMVY7A';
+var map = new mapboxgl.Map({
+container: 'map',
+center: [-30,0],
+zoom: 1,
+pitch: 30,
+style: 'mapbox://styles/mapbox/streets-v11'
+});
+let marker1 = new mapboxgl.Marker({color: 'blue'})
+.setLngLat(been_to)
+.addTo(map);
+let marker2 = new mapboxgl.Marker({color: 'pink'})
+.setLngLat(from)
+.addTo(map);
+let marker3 = new mapboxgl.Marker({color: 'yellow'})
+.setLngLat(going_to)
+.addTo(map);
+
+map.on('load', () => {
+map.addSource('route', {
+'type': 'geojson',
+'data': {
+'type': 'Feature',
+'properties': {},
+'geometry': {
+'type': 'LineString',
+'coordinates': [
+been_to,
+from,
+going_to
+]
+}
+}
+});
+map.addLayer({
+'id': 'route',
+'type': 'line',
+'source': 'route',
+'layout': {
+'line-join': 'round',
+'line-cap': 'round'
+},
+'paint': {
+'line-dasharray': [1,2],
+'line-color': 'red',
+'line-width': 8
+}
+});
+});
+
+</script>
+<%}%>
+
+</div>

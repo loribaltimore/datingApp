@@ -1,0 +1,27 @@
+<div id="notify-div" class="row">
+    <%if (notifications){%>
+        <%for (let notify of notifications){%>
+            <div id="" class="row border border-top notification" >
+                <img src="<%=notify.from.photo%>" alt="" class="col notification-photo" id="">
+               <div class="col row notification-msg" id="" >
+                <p class="notification-body" ><%=notify.message%></p>
+                <form action="http://portfolio:3000/user/<%=currentUser.id%>/match/<%=notify.from.match_id%>/notifications" id="" class="notif-form col <%=notify.category%>" method="POST" hidden>
+                    <input type="text" name="notification[category]" value="<%=notify.category%>" hidden>
+                    <input type="text" name="notification[match_id]" value="<%=notify.from.match_id%>" hidden>
+                    <input type="text" name="notification[notif_id]" value="<%=notify.id%>" hidden>
+                </form>
+            </div>
+            <form action="http://portfolio:3000/user/<%=currentUser.id%>/match/<%=notify.from.match_id%>/notifications" id="" class="close-form" method="POST" hidden>
+                <input type="text" name="notification[btn]" value="true" hidden>
+                <input type="text" name="notification[notif_id]" value="<%=notify.id%>" hidden>
+            </form>
+            <button  class="btn-close notif-close" aria-label="Close" id=""></button>
+                </div>
+        <%}%>
+    <%} else {%>
+        <div class="col row" id="notification-msg" >
+            <p class="notification">No Notifications Yet!</p>
+        </div>
+        <%}%>
+</div>
+

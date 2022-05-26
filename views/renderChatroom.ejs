@@ -1,0 +1,100 @@
+<%-layout('./partials/boilerplate')%>
+
+<div class="container row" id="messages-div">
+    <div id="messages-display">
+    <a href="/user/<%=currentUser.id%>/match/<%=prospectiveMatch.matching.match_id%>"><div class="row text-start"  id="chat-room-photo-div">
+        <img src="<%=prospectiveMatch.bio.img[0].path%>" alt="" id="chat-room-photo">
+        <p class="text-center" id="chat-room-name"><%=prospectiveMatch.bio.first_name%></p>
+    </div></a>
+    <ul id="messages" class="mt-2">
+      <%if (allMsgs !== undefined){%>
+     <% for (let msg of allMsgs){%>
+     <% if (allMsgs.indexOf(msg) % 2 === 0){%>
+        <li class="odd-msg"><%=msg%></li>
+      <%} else {%>
+        <li><%=msg%></li>
+      <%}%>
+      <%}%>
+      <%} else {%>
+        <%if (nudge !== false){%>
+          <li class="nudge-chat"><%=nudge%></li>
+        <%}%>
+        <%}%>
+    </ul>
+      <h6><span class="" id="read"></span></h6>    
+    <form id="chat-form" action="">
+      <input id="chat-input" autocomplete="off" /><button id="chat-btn">Send</button>
+    </form>
+    
+    </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      let read = document.getElementById('read');
+      let isRead = '<%=read%>';
+      if (isRead === ('read')){
+        read.innerText = 'read'
+        read.classList = ['badge bg-primary'];
+        read.removeAttribute('hidden');
+      } else if (isRead === 'unread'){
+        read.innerText = 'unread';
+        read.classList = ['badge bg-danger'];
+        read.removeAttribute('hidden');
+      } 
+           let oddMsg = undefined;
+      if ('<%=allMsgs%>' !== undefined) {
+        let allMsgLength = '<%=allMsgs%>'.split(',').length;
+        parseInt(allMsgLength) % 2 === 0 || '<%=allMsgs%>' === '' ? oddMsg = true : oddMsg = false
+      };
+      let regex = /.+@/g;
+      let them = '<%=prospectiveMatch.email%>';
+      let me = '<%=currentUser.email%>';
+      let channel = them.match(regex)+ me.match(regex);
+    var socket = io();
+    let chatForm = document.getElementById('chat-form');
+  var chatInput = document.getElementById('chat-input');
+    let messages = document.getElementById('messages');
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (read.getAttribute('hidden') === true){
+          read.removeAttribute('hidden');
+          read.innerText = 'unread';
+          read.classList = ['badge bg-danger'];
+        } else {
+          if (read.innerText === 'read'){
+            read.innerText = 'unread';
+            read.classList = ['badge bg-danger'];
+          }
+        }
+        if (chatInput.value) {
+          let formData = chatInput.value;
+        socket.emit('channel', channel)
+      socket.emit('private message', chatInput.value);
+      chatInput.value = '';
+    let saveChat = await axios({
+    method: 'post',
+    url: 'http://portfolio:3000/user/<%=currentUser.id%>/match/<%=prospectiveMatch.matching.match_id%>/chat',
+    data: {
+      body: formData,
+      nudge: '<%=nudge%>'
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    }
+      }).then(response => {return response}).catch(err => console.log(err));
+  }
+
+  });
+ 
+    socket.on('private message', function (msg) {
+      var item = document.createElement('li');
+      if (oddMsg === true) {
+          item.classList.add('odd-msg');
+      };
+    item.textContent = msg;
+    messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+      oddMsg === false? oddMsg = true : oddMsg = false
+  });
+    </script>
