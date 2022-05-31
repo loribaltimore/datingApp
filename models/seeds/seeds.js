@@ -92,7 +92,7 @@ let resetRatings = async function () {
     let breandan = await User.findOne({ 'bio.first_name': 'Breandan' });
     let bai = await User.findOne({ username: 'Bailley' });
 
-    let data = await client.geocodeForward('427 Bellevue Way SE Bellevue Washington').then(data => console.log(data.entity.features[0])).catch(err => console.log(err))
+    // let data = await client.geocodeForward('427 Bellevue Way SE Bellevue Washington').then(data => console.log(data.entity.features[0])).catch(err => console.log(err))
     // currentUser.matching.liked = [];
     // currentUser.matching.rejected = [];
     // currentUser.limit.start = undefined;
@@ -107,14 +107,14 @@ let resetRatings = async function () {
     // breandan.notifications = [];
     // await currentUser.save();
     // await breandan.save();
-//     for (let user of allUsers) {
-//         user.notifications = [];
-//         user.matching.liked = [];
-//         user.matching.matches = [];
-//         user.matching.rejected = [];
-//         user.matching.chat = [];
-//         await user.save();
-//    }
+    for (let user of allUsers) {
+        user.notifications = [];
+        user.matching.liked = [];
+        user.matching.matches = [];
+        user.matching.rejected = [];
+        user.matching.chat = [];
+        await user.save();
+   }
 // let coords = [
 //     [18.638871889816645, 73.72858586016072],
 //     [18.619739909723343, 73.7299732884603],
@@ -138,10 +138,7 @@ let resetRatings = async function () {
 //         };
 //         await user.save();
 //     }
-    console.log(currentUser.matching.match_id);
-    console.log(breandan.matching.match_id);
 
-   
     // for (let user of allUsers) {
     //     if (allUsers.indexOf(user) <= 31) {
     //         user.preferences.gender = 'Male';

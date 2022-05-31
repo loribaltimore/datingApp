@@ -77,12 +77,12 @@ font-size: small;
 }
 .signup_btn{
     position: relative;
-    left: 75rem;
+    left: 60rem;
     color: green
 }
 .login_btn{
     position: relative;
-    left: 74rem;
+    left: 60rem;
     color: green
 }
 .nav-link{
@@ -383,6 +383,7 @@ top: 2rem;
     position: relative;
     top: 2rem;
 }
+
 
 
 

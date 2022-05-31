@@ -4,3 +4,55 @@
 <input type="text" placeholder="Password" name="password">
 <button>Log In</button>
 </form>
+
+<h1>DISCLAIMER</h1>
+<p>I understand that the front end is rough, but my best work is on the back end.</p>
+
+<h5>Login with any username</h5>
+<h3>Seed Logins</h3>
+<ol>
+    <li>username: dev - Match_ID: 626ed1a02d007ebd612a088d
+    </li>
+    <li>username: Breandan - Match_ID: 62622534c8f76963990b6a53
+    </li>
+    <li>username: Bailley - Match_ID : 62622534c8f76963990b6a8b
+    </li>
+    <li>password: dev
+    </li>
+</ol>
+<ol>
+    <li>Select 'Matching' from the Navbar. 
+        localhost:3000/user/:id/match/:match_id will be the route
+        paste another users Match_ID in place of /:match_id to pull up their profile
+    </li>
+    <li>rate them and select interested.
+        Login to that users profile and repeat the process with your original user 
+        to 'Match';
+        Select 'Chat' from the navbar
+        Chatting is live with socket.io and you can see whether or not your match has read your message
+        You can Nudge your match to suggest topics of conversation</li>
+    <li>You can edit the profile from the 'Options' category on the Navbar;
+        You'll find that updating favorite movies, reading, and video games is dynamic
+        You can search results from APIs to update your profile. Your selection will show on your profile immediately
+        The front end may be rough, but if you go through the back end it all works fine and smooth.
+</ol>
+
+<h3>You can Create a User with Sign Up</h3>
+<ul>
+    <li>Signing up will allow you to choose active location or static location</li>
+    <li>Active location is set with IP address lookup; static location uses your home location set at signup</li>
+    <li>You can filter potential matches by distance; 
+        There are not a lot of seeded users at great distances, 
+        so you may want to set a match distance that is within 1 - 5 miles</li>
+    <li>You can filter potential matches by age range as well</li>
+    <li>Your sexual preferences are also filtered</li>
+    <li>All matches will filter out users that dont fit your criteria</li>
+</ul>
+<p>        
+    Run /models/seeds/seeds.js in node to reset all user activity
+    If you have questions please email me @ hvp3rwvv3@gmail.com
+</p>
+
+
+
+
