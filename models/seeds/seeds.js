@@ -84,10 +84,10 @@ let seedUser = async function () {
 // }
 
 let resetRatings = async function () {
-    let allMsg = await Msg.deleteMany({});
-    let allChat = await Chat.deleteMany({});
+    // let allMsg = await Msg.deleteMany({});
+    // let allChat = await Chat.deleteMany({});
     let allUsers = await User.find({});
-    let allNotif = await Notify.deleteMany({});
+    // let allNotif = await Notify.deleteMany({});
     let currentUser = await User.findOne({ username: 'dev' });
     let breandan = await User.findOne({ 'bio.first_name': 'Breandan' });
     let bai = await User.findOne({ username: 'Bailley' });
@@ -107,14 +107,14 @@ let resetRatings = async function () {
     // breandan.notifications = [];
     // await currentUser.save();
     // await breandan.save();
-    for (let user of allUsers) {
-        user.notifications = [];
-        user.matching.liked = [];
-        user.matching.matches = [];
-        user.matching.rejected = [];
-        user.matching.chat = [];
-        await user.save();
-   }
+//     for (let user of allUsers) {
+//         user.notifications = [];
+//         user.matching.liked = [];
+//         user.matching.matches = [];
+//         user.matching.rejected = [];
+//         user.matching.chat = [];
+//         await user.save();
+//    }
 // let coords = [
 //     [18.638871889816645, 73.72858586016072],
 //     [18.619739909723343, 73.7299732884603],
@@ -165,6 +165,9 @@ let resetRatings = async function () {
     //     await user.save();
     // }
     
+    console.log(currentUser.matching.match_id);
+    console.log(breandan.matching.match_id);
+    console.log(bai.matching.match_id);
 
 
 
